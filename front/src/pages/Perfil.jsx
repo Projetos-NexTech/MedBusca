@@ -35,7 +35,7 @@ const Perfil = () => {
             <p><strong>Nome:</strong> {usuario.nome}</p>
             <p><strong>E-mail:</strong> {usuario.email}</p>
             <a href="/dados-perfil">Dados do usuario</a>
-            <p>ao invés de ser uma tela pode ser um componente que expande e mostra um pequeno form ja preechido com os dados para poder atualizar caso queira</p>
+            <p>ao invés de ser uma tela pode ser um componente que expande e mostra um pequeno form ja preechido com os dados para poder atualizar</p>
           </div>
         ) : (
           <p>Carregando informações...</p>
