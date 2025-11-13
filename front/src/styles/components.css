@@ -1,0 +1,93 @@
+.navbar {
+  width: 100%;
+  padding: 12px 20px;
+  position: fixed; /* fixa no topo */
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.267);
+  display: flex;
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar p {
+  margin: 0;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s;
+  color: rgb(0, 0, 0);
+}
+
+.navbar a:hover {
+  color: #001c38;
+}
+
+.perfil button{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e5e5f7; /* lilás suave, pode mudar */
+  color: #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.navbar button {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.navbar button:hover {
+  color: #000;
+}
+
+.login-btn,
+.logout-btn,
+.perfil-btn {
+  background-color: #3f8d7f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.3s;
+}
+
+.login-btn:hover,
+.logout-btn:hover,
+.perfil-btn:hover {
+  background-color: #2e6b5f;
+}
