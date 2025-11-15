@@ -85,17 +85,22 @@ const deletarRemedio = async (req, res) => {
 
 const buscarRemedioPorNome = async (req, res) => {
   try {
-    const remedio = await Remedio.findOne({ nome: req.params.nome });
-    if (!remedio) {
+    const remedios = await Remedio.find({
+      nome: { $regex: req.params.nome, $options: "i" }
+    });
+
+    if (!remedios || remedios.length === 0) {
       return res.status(404).json({
         success: false,
         message: 'Remédio não encontrado'
       });
     }
+
     res.json({
       success: true,
-      data: remedio
+      data: remedios
     });
+
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -106,17 +111,22 @@ const buscarRemedioPorNome = async (req, res) => {
 
 const buscarRemedioPorCategoria = async (req, res) => {
   try {
-    const remedio = await Remedio.findOne({ categoria: req.params.categoria });
-    if (!remedio) {
+    const remedios = await Remedio.find({
+      categoria: { $regex: req.params.categoria, $options: "i" }
+    });
+
+    if (!remedios || remedios.length === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Remédio não encontrado'
+        message: 'Nenhum remédio encontrado na categoria'
       });
     }
+
     res.json({
       success: true,
-      data: remedio
+      data: remedios
     });
+    
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -124,6 +134,7 @@ const buscarRemedioPorCategoria = async (req, res) => {
     });
   }
 };
+
 
 const atualizarRemedio = async (req, res) => {
   try {

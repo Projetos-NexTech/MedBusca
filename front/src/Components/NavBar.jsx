@@ -8,7 +8,6 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Verifica se há usuário logado no localStorage
     const usuarioSalvo = localStorage.getItem("usuario");
     if (usuarioSalvo) {
       setUsuario(JSON.parse(usuarioSalvo));
@@ -19,7 +18,7 @@ const NavBar = () => {
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
     setUsuario(null);
-    navigate("/login"); // Redireciona para a página de login
+    navigate("/login"); 
   };
 
   return (
@@ -32,14 +31,12 @@ const NavBar = () => {
             <p>MedBusca</p>
           </li>
 
-          {/* Links de navegação */}
           {Links.map(({ label, path }) => (
             <li key={path}>
               <Link to={path}>{label}</Link>
             </li>
           ))}
 
-          {/* Exibe botão dependendo do estado de login */}
           <li className="perfil">
             {usuario ? (
               <>

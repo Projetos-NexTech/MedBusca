@@ -91,3 +91,130 @@ button:focus-visible {
 .read-the-docs {
   color: #888;
 }
+
+.tela-remedio {
+  padding: 20px;
+}
+
+.container-remedio {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.container-remedio h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-input,
+.search-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.btn-pesquisar {
+  padding: 12px;
+  background-color: #008d5c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: 0.2s;
+}
+
+.btn-pesquisar:hover {
+  background-color: #006d47;
+}
+
+.telaInicial {
+  padding: 20px;
+}
+
+/* Farmácias próximas */
+.farmacias-container {
+  width: 100%;
+  height: 150px;
+  background: #f1f1f1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.placeholder {
+  color: #777;
+  font-style: italic;
+}
+
+/* Categorias → grid responsivo */
+.categorias-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.categoria-box {
+  padding: 15px;
+  flex: 1 1 calc(50% - 15px);
+  text-align: center;
+  background-color: #008d5c;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  min-width: 120px;
+}
+
+.categoria-box:hover {
+  background-color: #006542;
+}
+
+.resultado-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.remedio-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px #00000022;
+}
+
+.remedio-card h3 {
+  margin-bottom: 8px;
+}
+
+.farmacia-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.farmacia-link:hover {
+  text-decoration: underline;
+}
+
+.msg-alerta {
+  color: #d9534f;
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+

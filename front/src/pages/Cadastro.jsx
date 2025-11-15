@@ -26,7 +26,6 @@ const Cadastro = () => {
       return;
     }
 
-    // Criptografa a senha 
 
     try {
       const res = await api.post("/api/usuarios", {

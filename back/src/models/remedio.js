@@ -13,11 +13,16 @@ const remedioSchema = new mongoose.Schema({
   },
   categoria: {
     type: String,
-    enum: ['Dor e Febre', 'Gripe e Resfriado', 'Estômago e intestino', 'Alergia e infecções'],
+    enum: ['analgesicos', 'antibioticos', 'vitaminas', 'genericos', 'antialergicos'],
   },
   preco: {
     type: Number,
     min: 0
+  },
+  farmaciaId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Farmacia",
+    required: true
   }
 });
 

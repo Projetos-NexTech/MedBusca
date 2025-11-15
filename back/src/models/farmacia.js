@@ -31,6 +31,14 @@ const farmaciaSchema = new mongoose.Schema({
     cep: {
       type: String,
       required: true
+    },
+    latitude: {
+      type: String,
+      required: true
+    },
+    longitude: {
+      type: String,
+      required: true
     }
   }
 });
