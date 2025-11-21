@@ -1,0 +1,214 @@
+.tela-remedio {
+  padding: 20px;
+}
+
+.container-remedio {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.container-remedio h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar input,
+.search-bar select {
+  flex-grow: 1;
+  flex-basis: 150px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+  border-color: #008d5c;
+  outline: none;
+}
+
+.search-bar input[type="text"] {
+  flex-basis: 200px;
+}
+
+.search-bar button {
+  flex-grow: 1;
+  flex-basis: 120px;
+  padding: 12px;
+  background-color: #008d5c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+  background-color: #006d47;
+}
+
+.grid-remedios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.card-remedio {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.card-remedio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-remedio h3 {
+  font-size: 1.15rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+.card-remedio .categoria {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.card-remedio .preco {
+  font-size: 1.25rem;
+  color: #008d5c;
+  font-weight: 800;
+  margin: 0;
+}
+
+.farmacia-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.farmacia-link:hover {
+  text-decoration: underline;
+}
+
+.msg-alerta {
+  color: #d9534f;
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #d9534f;
+  border-radius: 8px;
+  background: #fdf2f2;
+}
+
+.farmacia-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px #00000022;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.farmacia-card:hover {
+  transform: scale(1.03);
+}
+
+.farmacia-card h4 {
+  margin: 0 0 6px 0;
+}
+
+.farmacia-card .distancia {
+  color: #444;
+  font-weight: bold;
+}
+
+.card {
+  padding: 2em;
+}
+
+.farmacias-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.farmacia-card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.farmacia-card:hover {
+  transform: scale(1.02);
+}
+
+.btn-ver-mais {
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: #0aa36b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.btn-ver-mais:hover {
+  background: #087a50;
+}
+
+@media (max-width: 600px) {
+  .container-remedio {
+    padding-top: 0;
+  }
+  .search-bar-minimalista {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+  .search-bar-minimalista input,
+  .search-bar-minimalista select,
+  .search-bar-minimalista button {
+    flex-basis: auto;
+  }
+}

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Links from "../Links";
 import Btnvoltar from "./Btnvoltar";
+import Btnlogout from "./Btnlogout";
+import "../styles/components.css";
 
 const NavBar = () => {
   const [usuario, setUsuario] = useState(null);
@@ -14,21 +16,14 @@ const NavBar = () => {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("usuario");
-    localStorage.removeItem("token");
-    setUsuario(null);
-    navigate("/login"); 
-  };
-
   return (
-    <div className="navbar">
+    <div className="comp-navbar">
       <nav>
         <ul>
-          <Btnvoltar lugar="navbar" />
+          <Btnvoltar estilo= "btn-voltar" lugar="navbar" />
 
           <li>
-            <p>MedBusca</p>
+            <p className="titulo-navbar">MedBusca</p>
           </li>
 
           {Links.map(({ label, path }) => (
@@ -37,17 +32,16 @@ const NavBar = () => {
             </li>
           ))}
 
-          <li className="perfil">
+          <li className="nav-perfil">
             {usuario ? (
               <>
                 <button
                   className="perfil-btn"
                   onClick={() => navigate("/perfil")}
                 >
-                  <span>{usuario.nome?.charAt(0).toUpperCase() || "P"}</span>
-                </button>
-                <button className="logout-btn" onClick={handleLogout}>
-                  Sair
+                  <span>
+                    {usuario?.nome?.split(" ").slice(0, 2).join(" ") || "Usuário"}
+                  </span>
                 </button>
               </>
             ) : (

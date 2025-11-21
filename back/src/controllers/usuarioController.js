@@ -3,17 +3,14 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const criarUsuario = async (req, res) => {
-
   try {
     const { nome, email, senha } = req.body;
 
-    // Verifica se o email já existe
     const usuarioExistente = await Usuario.findOne({ email });
     if (usuarioExistente) {
       return res.status(400).json({ success: false, message: "Email já cadastrado" });
     }
 
-    // Criptografa a senha antes de salvar
     const senhaCriptografada = await bcrypt.hash(senha, 10);
 
     const usuario = new Usuario({
@@ -113,14 +110,14 @@ const buscarUsuarioPorId = async (req, res) => {
 const deletarUsuario = async (req, res) => {
   try {
     const usuario = await Usuario.findByIdAndDelete(req.params.id);
-    
+
     if (!usuario) {
       return res.status(404).json({
         success: false,
         message: 'Usuário não encontrado'
       });
     }
-    
+
     res.json({
       success: true,
       message: 'Usuário deletado com sucesso'
@@ -133,10 +130,54 @@ const deletarUsuario = async (req, res) => {
   }
 };
 
+
+
+// ================================================
+// ✅ NOVA FUNÇÃO: ATUALIZAR USUÁRIO POR ID
+// ================================================
+const atualizarUsuarioPorId = async (req, res) => {
+  try {
+    const { nome, email, senha } = req.body;
+
+    const usuario = await Usuario.findById(req.params.id);
+    if (!usuario) {
+      return res.status(404).json({
+        success: false,
+        message: "Usuário não encontrado"
+      });
+    }
+
+    // Atualiza somente os campos enviados
+    if (nome) usuario.nome = nome;
+    if (email) usuario.email = email;
+
+    // Se enviaram senha nova, criptografa novamente
+    if (senha) {
+      usuario.senha = await bcrypt.hash(senha, 10);
+    }
+
+    await usuario.save();
+
+    res.json({
+      success: true,
+      message: "Usuário atualizado com sucesso",
+      data: usuario
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+
 module.exports = {
   criarUsuario,
   loginUsuario,
   buscarUsuarios,
   buscarUsuarioPorId,
-  deletarUsuario
+  deletarUsuario,
+  atualizarUsuarioPorId     // 👈 ADICIONADO AQUI
 };

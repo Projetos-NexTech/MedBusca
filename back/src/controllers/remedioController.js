@@ -23,22 +23,6 @@ const criarRemedio = async (req, res) => {
   }
 };
 
-const buscarRemedios = async (req, res) => {
-  try {
-    const remedios = await Remedio.find();
-    res.json({
-      success: true,
-      count: remedios.length,
-      data: remedios
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
-  }
-};
-
 const buscarRemedioPorId = async (req, res) => {
   try {
     const remedio = await Remedio.findById(req.params.id);
@@ -135,6 +119,34 @@ const buscarRemedioPorCategoria = async (req, res) => {
   }
 };
 
+const listarRemedios = async (req, res) => {
+  try {
+    const { farmaciaId } = req.query;
+
+    let filtro = {};
+
+    // Se houver farmaciaId na query, filtra por ele
+    if (farmaciaId) {
+      filtro.farmaciaId = farmaciaId;
+    }
+
+    const remedios = await Remedio.find(filtro);
+
+    return res.status(200).json({
+      success: true,
+      count: remedios.length,
+      data: remedios
+    });
+
+  } catch (error) {
+    console.error("Erro ao listar remédios:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Erro ao listar remédios"
+    });
+  }
+};
 
 const atualizarRemedio = async (req, res) => {
   try {
@@ -172,8 +184,8 @@ module.exports = {
   atualizarRemedio,
   buscarRemedioPorCategoria,
   criarRemedio,
-  buscarRemedios,
   buscarRemedioPorId,
   buscarRemedioPorNome,
-  deletarRemedio
+  deletarRemedio,
+  listarRemedios
 };

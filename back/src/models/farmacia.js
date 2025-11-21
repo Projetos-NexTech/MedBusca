@@ -5,6 +5,10 @@ const farmaciaSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Nome é obrigatório'],
   },
+  telefone: {
+    type: String,
+    required: [true, 'telefone é obrigatório'],
+  },
   endereco: {
     rua: {
       type: String,

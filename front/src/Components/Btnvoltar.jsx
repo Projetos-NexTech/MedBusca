@@ -1,7 +1,8 @@
 import React from 'react'
 import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/components.css";
 
-const Btnvoltar = ({ lugar }) => {
+const Btnvoltar = ({ lugar, estilo}) => {
    const navigate = useNavigate();
    const location = useLocation();
    let texto = "Voltar";
@@ -20,7 +21,7 @@ const Btnvoltar = ({ lugar }) => {
 
   
   return (
-    <button onClick={handleClick}>{texto}</button>
+    <button className= {estilo} onClick={handleClick}>{texto}</button>
   )
 }
 

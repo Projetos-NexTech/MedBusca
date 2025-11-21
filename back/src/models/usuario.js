@@ -17,10 +17,15 @@ const usuarioSchema = new mongoose.Schema({
   },
 
     favoritos: [{
+      farmacia: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Farmacia',
+        required: false
+      },
       remedio: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'remedio',
-        required: true
+        ref: 'Remedio',
+        required: false
       },
       adicionadoEm: {
         type: Date,
@@ -30,19 +35,7 @@ const usuarioSchema = new mongoose.Schema({
         type: Boolean,
         default: true
       }
-    }],
-    notificacoes: [{
-      remedio: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'remedio',
-        required: true
-      },
-      mensagem: String,
-      lida: {
-        type: Boolean,
-        default: false
-      }
     }]
 });
 
-module.exports = mongoose.model('usuarios', usuarioSchema);
+module.exports = mongoose.model('Usuario', usuarioSchema);

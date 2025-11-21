@@ -4,12 +4,14 @@ const {
   criarFarmacia,
   buscarFarmacias,
   buscarFarmaciaPorId,
-  deletarFarmacia
+  deletarFarmacia,
+  buscarFarmaciaPorNome
 } = require('../controllers/farmaciaController');
 
 router.post('/', criarFarmacia);
 router.get('/', buscarFarmacias);
 router.get('/:id', buscarFarmaciaPorId);
+router.get('/nome/:nome', buscarFarmaciaPorNome);
 router.delete('/:id', deletarFarmacia);
 
 module.exports = router;

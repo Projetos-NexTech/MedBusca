@@ -1,220 +1,28 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 0;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 body {
   margin: 0;
-  padding: 70px 0 0 0;
-  padding-top: 90px;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: #f8f8f8;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.1em 1.0em;
+  border: none;
+  padding: 0.4em 1em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  color: aliceblue;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 20px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.tela-sobrenos{
-  align-items: baseline;
-}
-
-.tela-cadastro .forms{
-  justify-content: space-between;
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.tela-remedio {
-  padding: 20px;
-}
-
-.container-remedio {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.container-remedio h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-area {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.search-input,
-.search-select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-.btn-pesquisar {
-  padding: 12px;
   background-color: #008d5c;
-  color: white;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 17px;
   transition: 0.2s;
+  color: white;
 }
 
-.btn-pesquisar:hover {
+button:hover {
   background-color: #006d47;
 }
-
-.telaInicial {
-  padding: 20px;
-}
-
-/* Farmácias próximas */
-.farmacias-container {
-  width: 100%;
-  height: 150px;
-  background: #f1f1f1;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 25px;
-}
-
-.placeholder {
-  color: #777;
-  font-style: italic;
-}
-
-/* Categorias → grid responsivo */
-.categorias-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.categoria-box {
-  padding: 15px;
-  flex: 1 1 calc(50% - 15px);
-  text-align: center;
-  background-color: #008d5c;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-  min-width: 120px;
-}
-
-.categoria-box:hover {
-  background-color: #006542;
-}
-
-.resultado-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.remedio-card {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px #00000022;
-}
-
-.remedio-card h3 {
-  margin-bottom: 8px;
-}
-
-.farmacia-link {
-  display: inline-block;
-  margin-top: 8px;
-  color: #007bff;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.farmacia-link:hover {
-  text-decoration: underline;
-}
-
-.msg-alerta {
-  color: #d9534f;
-  margin-top: 15px;
-  font-weight: bold;
-  text-align: center;
-}
-

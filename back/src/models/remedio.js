@@ -26,4 +26,4 @@ const remedioSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('remedio', remedioSchema);
+module.exports = mongoose.model('Remedio', remedioSchema);

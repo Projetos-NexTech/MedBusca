@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/App.css'
-import '../styles/components.css'
-import Btnvoltar from '../Components/Btnvoltar'
+import "../styles/login.css";
+import "../styles/components.css";
+import Btnvoltar from "../Components/Btnvoltar";
 import api from "../service/api";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [mostrarSenha, setMostrarSenha] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -26,42 +27,55 @@ const Login = () => {
       localStorage.setItem("usuarioId", res.data.usuario.id);
 
       alert("Login realizado com sucesso!");
-      navigate("/"); // redireciona para página inicial
+      navigate("/");
     } catch (err) {
-      console.error(err);
       alert(err.response?.data?.erro || "E-mail ou senha incorretos.");
     }
   };
 
   return (
     <div className="tela-login">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-box">
         <h3>Faça seu login</h3>
 
-        <label htmlFor="email">E-mail</label>
+        <label>E-mail</label>
         <input
           type="email"
-          id="email"
           placeholder="Digite seu e-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="login-input"
         />
 
-        <label htmlFor="senha">Senha</label>
-        <input
-          type="password"
-          id="senha"
-          placeholder="Digite sua senha"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-        />
+        <label>Senha</label>
+        <div className="senha-wrapper">
+          <input
+            type={mostrarSenha ? "text" : "password"}
+            placeholder="Digite sua senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            className="login-input"
+          />
+          <button
+            type="button"
+            className="btn-mostrar"
+            onClick={() => setMostrarSenha(!mostrarSenha)}
+          >
+            {mostrarSenha ? "Ocultar" : "Mostrar"}
+          </button>
+        </div>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" className="btn-entrar">Entrar</button>
       </form>
-      <button onClick={() => navigate("/cadastro")}>Cadastrar-se</button>
-      <Btnvoltar />
+      <div className="btns">
+        <p>Não tem conta?</p>
+      <button className="btn-secundario" onClick={() => navigate("/cadastro")}>
+        Cadastrar-se
+      </button>
+      <Btnvoltar estilo= "voltar-btn" />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
