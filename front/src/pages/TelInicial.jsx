@@ -73,7 +73,7 @@ const TelInicial = () => {
   }, []);
 
   const abrirCategoria = (cat) => {
-    navigate(`/tela-remedio?categoria=${cat}`);
+    navigate(`/tela-pesquisa?categoria=${cat}`);
   };
 
   const abrirDetalhes = (farmacia) => {
