@@ -1,0 +1,28 @@
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: #f8f8f8;
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.4em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #008d5c;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+}
+
+button:hover {
+  background-color: #006d47;
+}

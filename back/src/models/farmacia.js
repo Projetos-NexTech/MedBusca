@@ -5,6 +5,10 @@ const farmaciaSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Nome é obrigatório'],
   },
+  telefone: {
+    type: String,
+    required: [true, 'telefone é obrigatório'],
+  },
   endereco: {
     rua: {
       type: String,
@@ -29,6 +33,14 @@ const farmaciaSchema = new mongoose.Schema({
       maxlength: 2
     },
     cep: {
+      type: String,
+      required: true
+    },
+    latitude: {
+      type: String,
+      required: true
+    },
+    longitude: {
       type: String,
       required: true
     }

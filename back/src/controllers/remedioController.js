@@ -23,22 +23,6 @@ const criarRemedio = async (req, res) => {
   }
 };
 
-const buscarRemedios = async (req, res) => {
-  try {
-    const remedios = await Remedio.find();
-    res.json({
-      success: true,
-      count: remedios.length,
-      data: remedios
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
-  }
-};
-
 const buscarRemedioPorId = async (req, res) => {
   try {
     const remedio = await Remedio.findById(req.params.id);
@@ -85,17 +69,22 @@ const deletarRemedio = async (req, res) => {
 
 const buscarRemedioPorNome = async (req, res) => {
   try {
-    const remedio = await Remedio.findOne({ nome: req.params.nome });
-    if (!remedio) {
+    const remedios = await Remedio.find({
+      nome: { $regex: req.params.nome, $options: "i" }
+    });
+
+    if (!remedios || remedios.length === 0) {
       return res.status(404).json({
         success: false,
         message: 'Remédio não encontrado'
       });
     }
+
     res.json({
       success: true,
-      data: remedio
+      data: remedios
     });
+
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -106,21 +95,55 @@ const buscarRemedioPorNome = async (req, res) => {
 
 const buscarRemedioPorCategoria = async (req, res) => {
   try {
-    const remedio = await Remedio.findOne({ categoria: req.params.categoria });
-    if (!remedio) {
+    const remedios = await Remedio.find({
+      categoria: { $regex: req.params.categoria, $options: "i" }
+    });
+
+    if (!remedios || remedios.length === 0) {
       return res.status(404).json({
         success: false,
-        message: 'Remédio não encontrado'
+        message: 'Nenhum remédio encontrado na categoria'
       });
     }
+
     res.json({
       success: true,
-      data: remedio
+      data: remedios
     });
+    
   } catch (error) {
     res.status(500).json({
       success: false,
       message: error.message
+    });
+  }
+};
+
+const listarRemedios = async (req, res) => {
+  try {
+    const { farmaciaId } = req.query;
+
+    let filtro = {};
+
+    // Se houver farmaciaId na query, filtra por ele
+    if (farmaciaId) {
+      filtro.farmaciaId = farmaciaId;
+    }
+
+    const remedios = await Remedio.find(filtro);
+
+    return res.status(200).json({
+      success: true,
+      count: remedios.length,
+      data: remedios
+    });
+
+  } catch (error) {
+    console.error("Erro ao listar remédios:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Erro ao listar remédios"
     });
   }
 };
@@ -161,8 +184,8 @@ module.exports = {
   atualizarRemedio,
   buscarRemedioPorCategoria,
   criarRemedio,
-  buscarRemedios,
   buscarRemedioPorId,
   buscarRemedioPorNome,
-  deletarRemedio
+  deletarRemedio,
+  listarRemedios
 };

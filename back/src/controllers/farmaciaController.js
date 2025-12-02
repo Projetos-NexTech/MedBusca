@@ -82,6 +82,36 @@ const buscarFarmaciaPorId = async (req, res) => {
   }
 };
 
+const buscarFarmaciaPorNome = async (req, res) => {
+  try {
+    const nome = req.params.nome;
+    // Busca parcial e case-insensitive
+    const farmacias = await Farmacia.find({
+      nome: { $regex: nome, $options: "i" }
+    });
+
+    const farmaciasComMaps = farmacias.map(farmacia => {
+      const farmaciaObj = farmacia.toObject();
+      return {
+        ...farmaciaObj,
+        mapsUrl: farmacia.gerarUrlMaps(),
+        enderecoCompleto: farmacia.getEnderecoCompleto()
+      };
+    });
+
+    res.json({
+      success: true,
+      count: farmaciasComMaps.length,
+      data: farmaciasComMaps
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 const deletarFarmacia = async (req, res) => {
   try {
     const farmacia = await Farmacia.findByIdAndDelete(req.params.id);
@@ -109,5 +139,6 @@ module.exports = {
   criarFarmacia,
   buscarFarmacias,
   buscarFarmaciaPorId,
-  deletarFarmacia
+  deletarFarmacia,
+  buscarFarmaciaPorNome
 };

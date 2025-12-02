@@ -7,9 +7,9 @@ const {
   toggleNotificacaoEstoque
 } = require('../controllers/favoritosController');
 
-router.post('/:usuarioId/favoritos/:remedioId', adicionarFavorito);
-router.delete('/:usuarioId/favoritos/:remedioId', removerFavorito);
+router.post('/:usuarioId/favoritos', adicionarFavorito);
+router.delete('/:usuarioId/favoritos', removerFavorito);
 router.get('/:usuarioId/favoritos', listarFavoritos);
-router.patch('/:usuarioId/favoritos/:remedioId/notificacao', toggleNotificacaoEstoque);
+router.patch('/:usuarioId/favoritos/notificacao', toggleNotificacaoEstoque);
 
 module.exports = router;
