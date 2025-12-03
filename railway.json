@@ -3,18 +3,18 @@
     {
       "name": "API Backend",
       "project": "MedBusca",
-      "repo": "seu-usuario/seu-repo",
+      "repo": "Projetos-NexTech/MedBusca",
       "buildCommand": "npm install",
       "startCommand": "npm start server",
-      "rootDirectory": "backend"
+      "rootDirectory": "back"
     },
     {
       "name": "Frontend App",
       "project": "Meu Projeto Monorepo",
-      "repo": "seu-usuario/seu-repo",
+      "repo": "Projetos-NexTech/MedBusca",
       "buildCommand": "npm install && npm run build",
       "startCommand": "npx serve -s dist",
-      "rootDirectory": "frontend"
+      "rootDirectory": "front"
     }
   ],
   "$schema": "https://railway.app/schemas/railway.json"
