@@ -6,7 +6,7 @@ import Login from "./pages/Login.jsx";
 import Cadastro from "./pages/Cadastro.jsx";
 import TelaPesquisa from "./pages/TelaPesquisa.jsx";
 import SobreNos from "./pages/SobreNos.jsx";
-//import Info from "./pages/info.jsx";
+import Info from "./pages/info.jsx";
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
       <Route path="/cadastro" element={<Cadastro/>}/>
       <Route path="/tela-pesquisa" element={<TelaPesquisa/>}/>
       <Route path="/sobre-nos" element={<SobreNos/>}/>
-      {/*<Route path="/info" element={<Info/>}/>*/}     
+      <Route path="/info" element={<Info/>}/>    
     </Routes>
    </>
   )
