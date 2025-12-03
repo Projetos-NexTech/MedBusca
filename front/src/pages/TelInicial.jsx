@@ -30,7 +30,7 @@ const TelInicial = () => {
         setFarmUser({ lat: userLat, lon: userLon });
 
         try {
-          const res = await fetch("http://localhost:5000/api/farmacias");
+          const res = await fetch("https://backend-production-e39a.up.railway.app/api/farmacias");
           if (!res.ok) throw new Error(`Status ${res.status}`);
           const json = await res.json();
           const lista = json.data || json;
