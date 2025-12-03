@@ -9,7 +9,16 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+const frontendOrigin = 'https://medbusca.up.railway.app'; 
+
+const corsOptions = {
+    origin: frontendOrigin, 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, 
+};
+
+app.use(cors(corsOptions));
+app.use(express.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
