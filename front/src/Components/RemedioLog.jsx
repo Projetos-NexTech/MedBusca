@@ -19,7 +19,7 @@ const RemedioLog = ({ remedio, onClose }) => {
 
       try {
         const resp = await fetch(
-          `http://localhost:5000/api/favoritos/${usuarioId}/favoritos`
+          `https://backend-production-e39a.up.railway.app/api/favoritos/${usuarioId}/favoritos`
         );
 
         if (!resp.ok) return;
@@ -44,7 +44,7 @@ const RemedioLog = ({ remedio, onClose }) => {
 
       try {
         const resp = await fetch(
-          `http://localhost:5000/api/farmacias/${remedio.farmaciaId}`
+          `https://backend-production-e39a.up.railway.app/api/farmacias/${remedio.farmaciaId}`
         );
         if (!resp.ok) return;
 
@@ -65,7 +65,7 @@ const RemedioLog = ({ remedio, onClose }) => {
       return;
     }
 
-    const url = `http://localhost:5000/api/favoritos/${usuarioId}/favoritos`;
+    const url = `https://backend-production-e39a.up.railway.app/api/favoritos/${usuarioId}/favoritos`;
     const body = JSON.stringify({ tipo: "remedio", itemId: remedio._id });
 
     try {
