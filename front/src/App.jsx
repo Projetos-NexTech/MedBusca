@@ -6,7 +6,7 @@ import Login from "./pages/Login.jsx";
 import Cadastro from "./pages/Cadastro.jsx";
 import TelaPesquisa from "./pages/TelaPesquisa.jsx";
 import SobreNos from "./pages/SobreNos.jsx";
-import Info from "./pages/info.jsx";
+import Info from "./pages/Info.jsx";
 
 function App() {
 
