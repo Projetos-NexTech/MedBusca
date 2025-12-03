@@ -36,7 +36,7 @@ const FarmaciaLog = ({ farmacia, onClose }) => {
 
   const alternarFavorito = async () => {
     if (!usuarioId) return alert("Você precisa estar logado.");
-    const url = `http://localhost:5000/api/favoritos/${usuarioId}/favoritos`;
+    const url = `https://backend-production-e39a.up.railway.app/api/favoritos/${usuarioId}/favoritos`;
     const body = JSON.stringify({ tipo: "farmacia", itemId: farmacia._id });
     try {
       const resp = await fetch(url, {
