@@ -57,7 +57,7 @@ const TelaPesquisa = () => {
 
   const buscarAPI = async (valor, tipo) => {
     try {
-      const resp = await fetch(`http://localhost:5000/api/remedios/${tipo}/${valor}`);
+      const resp = await fetch(`https://backend-production-e39a.up.railway.app/api/remedios/${tipo}/${valor}`);
       if (!resp.ok) throw new Error("Erro ao buscar");
       const json = await resp.json();
       setResultados(json.data);
@@ -136,7 +136,7 @@ const TelaPesquisa = () => {
       // buscar remédios
       if (busca.trim() !== "") {
         const res = await fetch(
-          `http://localhost:5000/api/remedios/nome/${encodeURIComponent(busca.trim())}`
+          `https://backend-production-e39a.up.railway.app/api/remedios/nome/${encodeURIComponent(busca.trim())}`
         );
         if (res.ok) {
           const json = await res.json();
@@ -144,7 +144,7 @@ const TelaPesquisa = () => {
         }
       } else if (categoria) {
         const res = await fetch(
-          `http://localhost:5000/api/remedios/categoria/${categoria}`
+          `https://backend-production-e39a.up.railway.app/api/remedios/categoria/${categoria}`
         );
         if (res.ok) {
           const json = await res.json();
@@ -180,7 +180,7 @@ const TelaPesquisa = () => {
       // buscar farmácias pelo nome
       if (busca.trim() !== "") {
         const resF = await fetch(
-          `http://localhost:5000/api/farmacias/nome/${encodeURIComponent(busca.trim())}`
+          `https://backend-production-e39a.up.railway.app/api/farmacias/nome/${encodeURIComponent(busca.trim())}`
         );
         if (resF.ok) {
           const jsonF = await resF.json();
