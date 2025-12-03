@@ -18,7 +18,7 @@ const FarmaciaLog = ({ farmacia, onClose }) => {
 
       try {
         const resp = await fetch(
-          `http://localhost:5000/api/favoritos/${usuarioId}/favoritos`
+          `https://backend-production-e39a.up.railway.app/api/favoritos/${usuarioId}/favoritos`
         );
         if (!resp.ok) return;
 
