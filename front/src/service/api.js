@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create ({
     // local: baseURL: "http://localhost:5000",
-    baseURL: "backend.railway.internal,
+    baseURL: "http://backend:5000,
     withCrdentials: true,
 });
 
