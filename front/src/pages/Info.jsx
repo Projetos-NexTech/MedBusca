@@ -19,7 +19,7 @@ const Info = () => {
       if (!id) return;
 
       try {
-        const resp = await fetch(`http://localhost:5000/api/farmacias/${id}`);
+        const resp = await fetch(`https://backend-production-e39a.up.railway.app/api/farmacias/${id}`);
         if (!resp.ok) return;
 
         const json = await resp.json();
@@ -39,7 +39,7 @@ const Info = () => {
 
       try {
         const resp = await fetch(
-          `http://localhost:5000/api/remedios?farmaciaId=${id}`
+          `https://backend-production-e39a.up.railway.app/api/remedios?farmaciaId=${id}`
         );
         if (!resp.ok) return;
 
